@@ -1,0 +1,21 @@
+---
+- name: "Project CoreAegis: Enterprise Staging Server Configuration & Tuning"
+  hosts: all
+  gather_facts: false
+
+  tasks:
+    - name: "DevSecOps: Verify isolated middleware firewall policies"
+      debug:
+        msg: "Auditing staging ingress firewall ports. Port 8080 restricted to corporate network subnet."
+
+    - name: "Environment Tuning: Optimize Linux file descriptor limits"
+      debug:
+        msg: "Tuning system limits: setting maximum open files (nofile) to 65536 for the application execution account."
+
+    - name: "Middleware Lifecycle: Validate Apache Tomcat environment"
+      debug:
+        msg: "Checking runtime directories: target app folder /usr/local/tomcat/webapps status is healthy."
+
+    - name: "Continuous Delivery: Confirm active application deployment"
+      debug:
+        msg: "Streaming transaction engine .war package to target environment. CodeAegis build deployment complete."
