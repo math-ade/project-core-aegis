@@ -21,4 +21,3 @@ EXPOSE 8080
 
 # Boot the Apache Tomcat Engine securely
 CMD ["catalina.sh", "run"]
-
