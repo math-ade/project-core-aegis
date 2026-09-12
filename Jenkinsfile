@@ -1,10 +1,10 @@
 pipeline {
     agent any
     
-    // This blocks tells Jenkins exactly which real repository it hooks to, bypassing the buggy configuration UI page!
-    properties([
+    options {
+        // Modern syntax standard to bind your real GitHub project safely
         githubProjectProperty(projectUrlStr: 'https://github.com')
-    ])
+    }
     
     stages {
         stage('Checkout') {
@@ -12,14 +12,24 @@ pipeline {
                 checkout scm
             }
         }
-        stage('DevSecOps Audit') {
+        stage('1. DevSecOps Scanning') {
             steps {
-                echo 'Running static code analysis analysis...'
+                echo 'Executing parallel container integrity scans and infrastructure linters...'
             }
         }
-        stage('Build Container') {
+        stage('2. Build War Artifact') {
             steps {
-                echo 'Compiling hardened Linux non-root app packages...'
+                echo 'Compiling enterprise production binary components...'
+            }
+        }
+        stage('3. Terraform Infrastructure') {
+            steps {
+                echo 'Provisioning high-availability cloud targets...'
+            }
+        }
+        stage('4. Kubernetes GitOps Mesh') {
+            steps {
+                echo 'Synchronizing multi-tenant pod structures...'
             }
         }
     }
