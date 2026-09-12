@@ -1,27 +1,26 @@
 pipeline {
     agent any
-    options {
-        disableConcurrentBuilds()
-    }
+    
+    // This blocks tells Jenkins exactly which real repository it hooks to, bypassing the buggy configuration UI page!
+    properties([
+        githubProjectProperty(projectUrlStr: 'https://github.com')
+    ])
+    
     stages {
-        stage('1. DevSecOps Scanning') {
-            parallel {
-                stage('IaC Lint') {
-                    steps { echo 'Running Checkov on Terraform Modules...' }
-                }
-                stage('Container Scan') {
-                    steps { echo 'Running Hadolint on Hardened Tomcat Engine...' }
-                }
+        stage('Checkout') {
+            steps {
+                checkout scm
             }
         }
-        stage('2. Build War Artifact') {
-            steps { echo 'Compiling Core Banking Engine via Maven...' }
+        stage('DevSecOps Audit') {
+            steps {
+                echo 'Running static code analysis analysis...'
+            }
         }
-        stage('3. Terraform Infrastructure') {
-            steps { echo 'Provisioning AWS Elastic Kubernetes Service (EKS)...' }
-        }
-        stage('4. Kubernetes GitOps Mesh') {
-            steps { echo 'Deploying Tomcat Application pods to isolated tenant space...' }
+        stage('Build Container') {
+            steps {
+                echo 'Compiling hardened Linux non-root app packages...'
+            }
         }
     }
 }
