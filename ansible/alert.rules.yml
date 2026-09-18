@@ -1,0 +1,22 @@
+groups:
+  - name: coreaegis-infrastructure-alerts
+    rules:
+      - alert: HostReplicaContainerDown
+        expr: up{job="tomcat-middleware"} == 0
+        for: 30s
+        labels:
+          severity: critical
+          tier: production
+        annotations:
+          summary: "Production Transaction Engine Ingress Failure on Node"
+          description: "Tomcat application server instance container has terminated. Kubernetes control plane auto-healing sequence initialized."
+
+      - alert: ContainerMemorySaturation
+        expr: (container_memory_working_set_bytes{container="fastapi-core"} / container_spec_memory_limit_bytes{container="fastapi-core"}) * 100 > 85
+        for: 2m
+        labels:
+          severity: warning
+          tier: compute
+        annotations:
+          summary: "High Memory Saturation Detected on Application Pod"
+          description: "FastAPI runtime heap memory is operating at {{ $value }}% capacity. Mitigation script scaling pod replicas triggered via GitOps engine."
