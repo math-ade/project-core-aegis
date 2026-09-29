@@ -1,0 +1,8 @@
+====================================================================
+           AEGIS FINANCIAL PLATFORM CORE TOPOLOGY MAP
+====================================================================
+[ENVIRONMENT] PRODUCTION ENVIRONMENT
+[TARGET NODE] DEPLOYED DIRECTLY TO MINIKUBE DOCKER MESH GRID
+[AVAILABILITY BALANCING] 2 MULTI-TENANT REPLICA POD ENGINE GROUPS
+[METRICS HARVEST ENGINE] ACTIVE STATUS TRACKING VIA OPENLENS
+====================================================================
