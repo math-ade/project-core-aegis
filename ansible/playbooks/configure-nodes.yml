@@ -1,0 +1,40 @@
+---
+- name: 🛠️ Hardening Linux Worker Nodes and Configuring Runtime Prerequisites
+  hosts: all
+  become: true
+  gather_facts: true
+
+  vars:
+    max_connections: 50000
+    security_group_label: "aegis-core-secure"
+
+  tasks:
+    - name: 1️⃣ Verify systemd-journald log directories exist cleanly
+      file:
+        path: /var/log/journal
+        state: directory
+        mode: '0755'
+        owner: root
+        group: root
+
+    - name: 2️⃣ Tune kernel network parameter thresholds for high-traffic scalability
+      sysctl:
+        name: net.core.somaxconn
+        value: "{{ max_connections }}"
+        state: present
+        reload: true
+
+    - name: 3️⃣ Harden OS memory boundary targets by forcing conservative swap behaviors
+      sysctl:
+        name: vm.swappiness
+        value: "10"
+        state: present
+        reload: true
+
+    - name: 4️⃣ Configure internal netfilter/iptables rules to shield container port mappings
+      iptables:
+        chain: INPUT
+        protocol: tcp
+        destination_port: 30080
+        jump: ACCEPT
+        comment: "Allow inbound nodeport telemetry ingress traffic securely"
