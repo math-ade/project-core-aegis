@@ -3,86 +3,164 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AegisOps Insights // Executive Telemetry Matrix</title>
-    <!-- 📊 Importing Elite Charting Interface Engines Directly via CDN -->
+    <title>🛡️ AegisOps-Insights // Live Global Telemetry Mesh</title>
     <script src="https://jsdelivr.net"></script>
     <style>
-        :root { --bg-main: #060b13; --bg-surface: #0b1528; --border-color: #1a2a42; --neon-cyan: #00f0ff; --neon-green: #00ff66; --text-primary: #f1f5f9; --text-muted: #94a3b8; }
-        body { background-color: var(--bg-main); color: var(--text-primary); font-family: -apple-system, BlinkMacSystemFont, sans-serif; margin: 0; padding: 24px; }
-        .app-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); padding-bottom: 16px; margin-bottom: 32px; }
-        .pulse-indicator { width: 12px; height: 12px; background-color: var(--neon-green); border-radius: 50%; box-shadow: 0 0 10px var(--neon-green); display: inline-block; }
-        .metrics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-bottom: 32px; }
-        .metric-card { background-color: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 8px; padding: 24px; }
-        .card-value { font-size: 2.5rem; font-weight: 700; color: var(--neon-cyan); margin: 12px 0; }
-        .chart-section { background-color: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 8px; padding: 24px; margin-bottom: 32px; }
-        .chart-container { position: relative; height: 300px; width: 100%; }
+        :root {
+            --bg-deep: #030712;
+            --bg-card: #0f172a;
+            --border-glow: #1e293b;
+            --neon-blue: #06b6d4;
+            --neon-emerald: #10b981;
+            --neon-amber: #f59e0b;
+            --text-light: #f9fafb;
+            --text-muted: #6b7280;
+        }
+        body {
+            background-color: var(--bg-deep);
+            color: var(--text-light);
+            font-family: 'SF Pro Display', -apple-system, sans-serif;
+            margin: 0;
+            padding: 32px;
+        }
+        .header-panel {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-glow);
+            padding-bottom: 20px;
+            margin-bottom: 40px;
+        }
+        .app-title { font-size: 1.75rem; font-weight: 800; display: flex; align-items: center; gap: 12px; }
+        .live-dot { width: 10px; height: 10px; background-color: var(--neon-emerald); border-radius: 50%; box-shadow: 0 0 12px var(--neon-emerald); }
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+        .ui-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-glow);
+            border-radius: 12px;
+            padding: 24px;
+            transition: transform 0.2s ease;
+        }
+        .ui-card:hover { transform: translateY(-4px); border-color: var(--neon-blue); }
+        .card-label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); }
+        .card-value { font-size: 2.75rem; font-weight: 800; color: var(--neon-blue); margin: 16px 0; }
+        .interactive-zone {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-glow);
+            border-radius: 12px;
+            padding: 32px;
+        }
+        .btn-matrix { display: flex; gap: 16px; margin-bottom: 24px; }
+        .ui-btn {
+            background-color: #1e293b;
+            color: var(--text-light);
+            border: 1px solid var(--border-glow);
+            padding: 12px 24px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+        .ui-btn:hover { background-color: var(--neon-blue); color: var(--bg-deep); }
+        .chart-box { position: relative; height: 350px; width: 100%; }
     </style>
 </head>
 <body>
-    <header class="app-header">
-        <div style="display: flex; align-items: center; gap: 12px;">
-            <span class="pulse-indicator"></span>
-            <h1>🛡️ AegisOps-Insights Live Control Panel</h1>
+    <header class="header-panel">
+        <div class="app-title">
+            <span class="live-dot"></span>
+            <span>🛡️ AegisOps-Insights // System Telemetry Mesh</span>
         </div>
-        <div style="background-color: #1e293b; border: 1px solid var(--border-color); padding: 6px 12px; border-radius: 4px; color: var(--neon-cyan);">
-            RUNNING ON: APACHE TOMCAT // KUBERNETES POD MESH
+        <div style="font-size: 0.9rem; color: var(--neon-blue); font-weight: bold;">
+            VISUAL METRICS CONSOLE ACTIVE
         </div>
     </header>
 
     <main>
+        <!-- 💵 Row 1: The Business & Financial Metrics Grid -->
         <section class="metrics-grid">
-            <div class="metric-card">
-                <div style="color: var(--text-muted); font-size: 0.85rem;">ANNUAL REVENUE SPEED</div>
-                <div class="card-value" style="color: var(--neon-green);">+$1.2M USD</div>
-                <div style="color: var(--text-muted); font-size: 0.9rem;">📈 14.2% TTM Feature Compression</div>
+            <div class="ui-card">
+                <div class="card-label">Projected Annual Revenue Gains</div>
+                <div class="card-value" style="color: var(--neon-emerald);">+$1.2M USD</div>
+                <div style="font-size: 0.9rem; color: var(--text-muted);">📈 14.2% TTM Feature Release Acceleration</div>
             </div>
-            <div class="metric-card">
-                <div style="color: var(--text-muted); font-size: 0.85rem;">MONTHLY CLOUD OPTIMIZATION</div>
+            <div class="ui-card">
+                <div class="card-label">Monthly Cloud Resource Optimization</div>
                 <div class="card-value">-23.4%</div>
-                <div style="color: var(--text-muted); font-size: 0.9rem;">📉 ₦4.2M S3 Lifecycle Savings</div>
+                <div style="font-size: 0.9rem; color: var(--text-muted);">📉 ₦4.2M Saved via Automated Lifecycle Audits</div>
             </div>
-            <div class="metric-card">
-                <div style="color: var(--text-muted); font-size: 0.85rem;">PROVISIONING LATENCY</div>
+            <div class="ui-card">
+                <div class="card-label">Deployment Provisioning Latency</div>
                 <div class="card-value">45 Min</div>
-                <div style="color: var(--text-muted); font-size: 0.9rem;">⏱️ 81% Speedup via Terraform Modules</div>
+                <div style="font-size: 0.9rem; color: var(--text-muted);">⏱️ 81% Compression down from 4 hours via IaC patterns</div>
             </div>
         </section>
 
-        <!-- 📈 Interactive Analytics Visual Dashboard Panel -->
-        <section class="chart-section">
-            <h2>📊 Real-Time Infrastructure ROI Metrics (Sub-Second Scraping)</h2>
-            <div class="chart-container">
-                <canvas id="telemetryChart"></canvas>
+        <!-- 🕹️ Row 2: Interactive SRE Demonstration Control Panel -->
+        <section class="interactive-zone">
+            <h2>🕹️ Live Interactive Traffic Simulator Console</h2>
+            <p style="color: var(--text-muted); margin-bottom: 24px;">Click the tracking buttons below to visually simulate cluster load behavior and monitor real-time cost-performance metrics adjustments instantly.</p>
+            
+            <div class="btn-matrix">
+                <button class="ui-btn" onclick="updateUIState('normal')">✅ Standard Mode</button>
+                <button class="ui-btn" onclick="updateUIState('surge')" style="border-color: var(--neon-amber);">⚠️ Simulate Traffic Surge</button>
+                <button class="ui-btn" onclick="updateUIState('optimize')" style="border-color: var(--neon-emerald);">💸 Trigger Cost-Optimization</button>
+            </div>
+
+            <div class="chart-box">
+                <canvas id="liveUIGraph"></canvas>
             </div>
         </section>
     </main>
 
     <script>
-        const ctx = document.getElementById('telemetryChart').getContext('2d');
-        new Chart(ctx, {
+        const ctx = document.getElementById('liveUIGraph').getContext('2d');
+        let telemetryChart = new Chart(ctx, {
             type: 'line',
             data: {
-                labels: ['00:00', '04:00', '08:00', '12:00', '16:00', '20:00'],
+                labels: ['10:00 AM', '11:00 AM', '12:00 PM', '01:00 PM', '02:00 PM', '03:00 PM'],
                 datasets: [{
-                    label: 'Cluster Cost Performance Optimization Trend (%)',
-                    data: [10, 15, 23.4, 23.4, 22.1, 23.4],
-                    borderColor: '#00f0ff',
-                    backgroundColor: 'rgba(0, 240, 255, 0.1)',
+                    label: 'Infrastructure Optimization Value Metrics (%)',
+                    data: [15, 18, 23.4, 23.4, 21.2, 23.4],
+                    borderColor: '#06b6d4',
+                    backgroundColor: 'rgba(6, 182, 212, 0.05)',
                     borderWidth: 3,
-                    tension: 0.4,
+                    tension: 0.3,
                     fill: true
                 }]
             },
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
-                plugins: { legend: { labels: { color: '#f1f5f9', font: { family: 'monospace' } } } },
+                plugins: { legend: { labels: { color: '#f9fafb' } } },
                 scales: {
-                    x: { grid: { color: '#1a2a42' }, ticks: { color: '#94a3b8', font: { family: 'monospace' } } },
-                    y: { grid: { color: '#1a2a42' }, ticks: { color: '#94a3b8', font: { family: 'monospace' } } }
+                    x: { grid: { color: '#1e293b' }, ticks: { color: '#6b7280' } },
+                    y: { grid: { color: '#1e293b' }, ticks: { color: '#6b7280' } }
                 }
             }
         });
+
+        function updateUIState(mode) {
+            if(mode === 'normal') {
+                telemetryChart.data.datasets[0].data = [15, 18, 23.4, 23.4, 21.2, 23.4];
+                telemetryChart.data.datasets[0].label = 'Standard Infrastructure Value Metrics (%)';
+                telemetryChart.data.datasets[0].borderColor = '#06b6d4';
+            } else if (mode === 'surge') {
+                telemetryChart.data.datasets[0].data =;
+                telemetryChart.data.datasets[0].label = '⚠️ Traffic Load Surge (Autoscaling Cluster Active)';
+                telemetryChart.data.datasets[0].borderColor = '#f59e0b';
+            } else if (mode === 'optimize') {
+                telemetryChart.data.datasets[0].data = [23.4, 24.5, 26.1, 28.4, 29.8, 32.5];
+                telemetryChart.data.datasets[0].label = '💸 Real-Time Cost Leak Elimination Mode Active';
+                telemetryChart.data.datasets[0].borderColor = '#10b981';
+            }
+            telemetryChart.update();
+        }
     </script>
 </body>
 </html>
