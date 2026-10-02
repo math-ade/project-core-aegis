@@ -1,4 +1,3 @@
-cat << 'EOF' > README.md
 # 🛡️ AegisOps-Insights // Live System Telemetry Engine
 
 Welcome to my enterprise-grade full-stack telemetry visualization platform. This project reads live server performance data and streams it directly to a beautiful, responsive dark-mode user interface.
@@ -17,5 +16,3 @@ Welcome to my enterprise-grade full-stack telemetry visualization platform. This
 
 ---
 **Author:** Adetunji Mathew Babatunde // AWS Certified Solutions Architect & Systems Engineer.
-EOF
-
